@@ -21,11 +21,11 @@
 			}
 			#mintool{
 				width:100%;
-				 height:640px;
+				 height:600px;
 					top:-50px;
 					left:-10px;
 					position: absolute;
-				 background-size: 100%;
+				 background-size: 110%;
 					background-image: url("img/in/intool1.png");
 					background-position: center 0;
 					background-repeat: no-repeat;
@@ -94,8 +94,8 @@
 			#mintool2{
 				width:100%;
 				 height:630px;
-					top:-100px;
-					left:-10px;
+					top:-83px;
+					left:0px;
 					position: absolute;
 				 background-size: 120%;
 				 display:none;
@@ -109,8 +109,8 @@
 			#mintool3{
 				width:100%;
 				 height:630px;
-					top:-100px;
-					left:-10px;
+					top:-83px;
+					left:0px;
 					position: absolute;
 				 background-size: 120%;
 				 display:none;
@@ -121,9 +121,15 @@
 					animation:rv 4s linear 1 ;
 					z-index: 9;
 			}
+			audio{
+			         display: none;
+			     }
 		</style>
 	</head>
 	<body>
+		<audio id="touchstart" autoplay="autoplay" controls="controls"loop="loop" preload="auto"
+		                src="http://music.163.com/song/media/outer/url?id=1805037400.mp3">
+		</audio>
 		<div  id="mintool"  ontouchstart="gtouchstart1()" ontouchmove="gtouchmove1()" ontouchend="gtouchend1()" ></div>
 		<div  id="mintool2"  ontouchstart="gtouchstart2()" ontouchmove="gtouchmove2()" ontouchend="gtouchend2()" ></div>
 		<div  id="mintool3"  ontouchstart="gtouchstart()" ontouchmove="gtouchmove()" ontouchend="gtouchend()" ></div>
@@ -135,6 +141,14 @@
        		
 	</body>
 	<script type="text/javascript">
+		function toggleSound() {
+		            var music = document.getElementById("touchstart"); 
+		            if (music.paused) { 
+		                music.paused=false;
+		                music.play(); 
+		            }  
+		        }
+		        setInterval("toggleSound()",1);
 		var index=0;
 		var tool=document.getElementById("mintool");
 		var img=document.getElementsByClassName("img");
@@ -200,5 +214,9 @@
 		$("#mintool3").click(function(){
 			location.href='1.html'
 		})
+		$(".page").click(function(){
+			$(".page").css("background-image","url('img/in/inpage2.png')");
+			$(".page").css("top","560px");
+		});
 	</script>
 </html>
