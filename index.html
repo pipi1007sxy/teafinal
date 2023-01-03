@@ -63,9 +63,9 @@
 					height:280px;
 					background-image: url("img/minxian.png") ;
 					background-repeat: no-repeat;
-					background-size: 90%;
+					background-size: 80%;
 					position: absolute;
-					top:280px;
+					top:420px;
 					z-index: 2;
 					animation: move 2s ease 1;
 				}
@@ -84,7 +84,7 @@
 								background-image: url("img/frame.png") ;
 								background-repeat:no-repeat;
 								background-size: 100%;
-								top:500px;
+								top:480px;
 								z-index: 1;
 								opacity: 0;
 								
@@ -100,39 +100,30 @@
 								background-image: url("img/mo/mopage1.gif") ;
 								background-size: 100%;
 								
-								top:550px;
+								top:560px;
 								z-index: 10000;
 							    animation: rv 2s ease 1;
 								animation-delay: 1.5s;
 								opacity: 0;
 							    animation-fill-mode: forwards;
 						}
-						.tishi{
-							width: 100%;
-							height: 80px;
-							position: absolute;
-							background-image: url("img/tishi.png") ;
-							background-repeat:no-repeat;
-							background-size: 100%;
-							top:580px;
-							left:40px;
-							z-index: 4;
-							animation: rv 0.5s ease 1;
-							animation-delay: 2s;
-							opacity: 0;
-							display:none;
-							animation-fill-mode: forwards;
-						}
+						
 						@keyframes rv{
 									0%{opacity:0}
 									50%{opacity:0.5}
 									100%{opacity:1}
 						            }
+						audio{
+						         display: none;
+						     }
+
 		</style>
 		
 	</head>
 	<body>
-	
+		<audio id="touchstart" autoplay="autoplay" controls="controls"loop="loop" preload="auto"
+		                src="http://music.163.com/song/media/outer/url?id=1805037400.mp3">
+		</audio>
 			<div  id="tool" ></div>
 			<div  id="tool2" ></div>
 			<div  id="tool3" ></div>
@@ -147,6 +138,14 @@
 		// document.body.addEventListener('touchmove', function(e){
 		//         e.preventDefault();
 		//     }, { passive: false }); 
+		    function toggleSound() {
+		                var music = document.getElementById("touchstart"); 
+		                if (music.paused) { 
+		                    music.paused=false;
+		                    music.play(); 
+		                }  
+		            }
+		            setInterval("toggleSound()",1);
 			var timeOutEvent=0;//定时器
 		    var timeOutEvent2=0;//用于animation的定时器
 		    var index=0;
